@@ -6,6 +6,14 @@ class Attribution
   end
 
   def response
+    attribution_id = store_attribution(@params)
+    # put the attribution id into a header cookie
     Response.new(200, @params)
+  end
+
+  private
+
+  def store_attribution(attribution_params)
+    AttributionStore.async_save_attribution(attribution_params)
   end
 end

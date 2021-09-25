@@ -7,6 +7,6 @@ class Response
   end
 
   def to_formatted
-    [@status_code, {}, [@message]]
+    [@status_code, {}, [@message.to_json]]
   end
 end
