@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../../lib/response'
+require_relative '../test_lib'
 
 describe Response do
   describe "formatting" do

@@ -10,9 +10,19 @@ class AggregateServer
   end
 
   def call(env)
-    response = case env['PATH_INFO']
+    # env.keys.each do |key, value|
+    #   puts "-----------------"
+    #   puts "#{key} = #{env[key].inspect}"
+    #   puts "-----------------"
+    # end
+    #
+    # puts env
+
+    request_hash = Request.new(env).to_h
+    response = case request_hash[:path]
                when '/'
-                  Response.new(200, "Root path")
+
+                  Response.new(200, "Thanks for the request #{request_hash}")
                when '/hi'
                   Response.new(200, "The high road")
                else
